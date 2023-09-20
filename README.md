@@ -1,3 +1,7 @@
+# angular-2023
+
+rxjs, ngrx, material, bootstrap, design patterns, etc included
+
 # Angular2023
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
