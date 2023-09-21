@@ -12,6 +12,7 @@ import { SampleComponent } from './sample/sample.component';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, SampleComponent],
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     LayoutModule,
     SharedModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
