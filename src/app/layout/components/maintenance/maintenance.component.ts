@@ -19,36 +19,13 @@ export class MaintenanceComponent
   extends BaseMaintenanceComponent
   implements OnInit
 {
-  data: PeriodicElement[] = [
-    { position: 1, name: 'Saját 1', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Saját 2', weight: 4.0026, symbol: 'He' },
-  ];
-  // override dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-  /*   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  } */
-
   constructor(private readonly dataService: DataService) {
     super();
     super.service = dataService;
-    // new MatTableDataSource<PeriodicElement>(this.data);
   }
 
   public override ngOnInit() {
     console.log('gyerek');
     super.ngOnInit();
-    // super.dataSource.data = ELEMENT_DATA;
   }
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Saját 1', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Saját 2', weight: 4.0026, symbol: 'He' },
-];

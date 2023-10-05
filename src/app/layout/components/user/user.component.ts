@@ -15,8 +15,8 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  @ViewChild(MatAccordion, { static: false }) accordion!: MatAccordion;
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   public displayedColumns: string[] = ['id', 'title', 'body', 'userId'];
   public length!: number;
@@ -24,13 +24,13 @@ export class UserComponent implements OnInit {
   public pageIndex = 0;
   pageEvent!: PageEvent;
 
-  public dataSource!: MatTableDataSource<User>;
+  public dataSource = new MatTableDataSource<User>();
   public users: User[] = [];
 
   constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe((res) => {
+    this.userService.getUser().subscribe((res: User[]) => {
       this.users = res;
       this.length = this.users.length;
       this.dataSource.paginator = this.paginator;
@@ -41,12 +41,6 @@ export class UserComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log('ok');
-  }
-
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+    this.dataSource.paginator = this.paginator;
   }
 }

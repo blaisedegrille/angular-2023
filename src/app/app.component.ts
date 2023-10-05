@@ -11,8 +11,9 @@ export class AppComponent {
   showFiller = false;
   componentList: Menu[] = [
     { name: 'Home', route: 'home' },
+    { name: 'Dynamic Grid', route: 'dynamic-grid' },
     { name: 'Maintenance', route: 'maintenance' },
-    { name: 'Role', route: 'role' },
+    { name: 'DataTable', route: 'datatable' },
     { name: 'User', route: 'user' },
     { name: 'Settings', route: 'settings' },
   ];

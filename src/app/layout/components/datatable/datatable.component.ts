@@ -3,11 +3,11 @@ import { ColumnMode } from '@swimlane/ngx-datatable';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'ang23-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.scss'],
+  selector: 'ang23-datatable',
+  templateUrl: './datatable.component.html',
+  styleUrls: ['./datatable.component.scss'],
 })
-export class RoleComponent {
+export class DataTableComponent {
   rows: Observable<any[]>;
 
   columns = [{ name: 'Name' }, { name: 'Gender' }, { name: 'Company' }];

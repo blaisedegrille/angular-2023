@@ -1,8 +1,15 @@
-<div class="container" style="max-width: 50%">
-  <div class="example-action-buttons">
-    <button mat-button (click)="accordion.openAll()">Expand All</button>
-    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+<div class="container" style="max-width: 100%; overflow: hidden">
+  <h1>User</h1>
+  <br />
+  <br />
+  <div style="gap: 5%; display: flex">
+    <button mat-raised-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-raised-button (click)="accordion.closeAll()">
+      Collapse All
+    </button>
   </div>
+  <br />
+  <br />
   <mat-accordion class="example-headers-align" multi>
     <!-- Users json -->
     <mat-expansion-panel>
@@ -13,7 +20,7 @@
           <span> User data </span>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <pre> {{ users | json }} </pre>
+      <pre style="overflow: hidden"> {{ users | json }} </pre>
     </mat-expansion-panel>
     <!-- Users table -->
     <mat-expansion-panel>
@@ -26,7 +33,7 @@
       </mat-expansion-panel-header>
 
       <div class="mat-elevation-z8">
-        <table #table mat-table [dataSource]="users">
+        <table mat-table [dataSource]="users">
           <!-- Id Column -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -54,12 +61,7 @@
         </table>
 
         <mat-paginator
-          #paginator
-          [length]="length"
-          [pageSize]="pageSize"
-          [pageIndex]="pageIndex"
           [pageSizeOptions]="[5, 10, 20]"
-          (page)="handlePageEvent($event)"
           showFirstLastButtons
           aria-label="Select page of users"
         >
