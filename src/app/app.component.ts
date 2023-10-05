@@ -7,7 +7,7 @@ import { Menu } from './models/menu';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-2023';
+  title = 'ang23';
   showFiller = false;
   componentList: Menu[] = [
     { name: 'Home', route: 'home' },
