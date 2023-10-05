@@ -8,7 +8,6 @@ import {
 } from '@angular/material/table';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
-import { PeriodicElement } from '../maintenance/maintenance.component';
 
 @Component({
   selector: 'ang23-user',

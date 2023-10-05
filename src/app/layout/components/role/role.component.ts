@@ -1,8 +1,40 @@
 import { Component } from '@angular/core';
+import { ColumnMode } from '@swimlane/ngx-datatable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ang23-role',
   templateUrl: './role.component.html',
   styleUrls: ['./role.component.scss'],
 })
-export class RoleComponent {}
+export class RoleComponent {
+  rows: Observable<any[]>;
+
+  columns = [{ name: 'Name' }, { name: 'Gender' }, { name: 'Company' }];
+
+  ColumnMode = ColumnMode;
+
+  constructor() {
+    this.rows = Observable.create((subscriber: any) => {
+      this.fetch((data: any) => {
+        subscriber.next(data.splice(0, 15));
+        subscriber.next(data.splice(15, 30));
+        subscriber.complete();
+      });
+    });
+
+    // Rx.DOM.ajax({ url: '/products', responseType: 'json'}).subscribe()
+    // this.rows = Observable.from(rows);
+  }
+
+  fetch(cb: any) {
+    const req = new XMLHttpRequest();
+    req.open('GET', `assets/data/company.json`);
+
+    req.onload = () => {
+      cb(JSON.parse(req.response));
+    };
+
+    req.send();
+  }
+}

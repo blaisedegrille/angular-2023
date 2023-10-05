@@ -1,6 +1,16 @@
 <h1>Maintenance</h1>
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+
+<div class="container">
+  <div style="gap: 5%; display: flex">
+    <button mat-raised-button (click)="loadDefaults()">Default</button>
+    <button mat-raised-button color="primary" (click)="reloadFromService()">
+      Reload
+    </button>
+  </div>
+</div>
+
+<div class="mat-elevation-z8" style="padding: 5px">
+  <table *ngIf="dataSource" mat-table [dataSource]="dataSource">
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -36,21 +46,3 @@
   >
   </mat-paginator>
 </div>
-
-<!--
-<table class="table table-striped">
-  <thead>
-      <tr>
-          <th scope="col" class="text-center" id="bb-utantoltes-id-column">#</th>
-          <th scope="col" class="text-center">Kért utántöltések</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr class="pointer" (click)="utantoltesSelected(utantoltes)" *ngFor="let utantoltes of utantoltesek">
-          <th scope="row" class="text-center">{{ utantoltes.itemNumber }}</th>
-          <td>{{ utantoltes.itemDescription }} - {{ utantoltes.quantityRemain }}</td>
-      </tr>
-  </tbody>
-</table>
-
--->

@@ -1,1 +1,12 @@
-<p>role works!</p>
+<div class="container" style="display: block">
+  <ngx-datatable
+    class="material striped"
+    [rows]="rows | async"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50"
+  >
+  </ngx-datatable>
+</div>

@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sample',
+  selector: 'ang23-sample',
   templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.scss']
+  styleUrls: ['./sample.component.scss'],
 })
-export class SampleComponent {
-
-}
+export class SampleComponent {}
