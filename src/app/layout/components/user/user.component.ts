@@ -7,6 +7,8 @@ import {
   MatTableDataSourcePaginator,
 } from '@angular/material/table';
 import { User } from 'src/app/models/user';
+import { UserJsonPlaceholder } from 'src/app/models/user-jsonplaceholder';
+import { UserJsonPlaceholderService } from 'src/app/service/user-jsonplaceholder.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -24,13 +26,13 @@ export class UserComponent implements OnInit {
   public pageIndex = 0;
   pageEvent!: PageEvent;
 
-  public dataSource = new MatTableDataSource<User>();
-  public users: User[] = [];
+  public dataSource = new MatTableDataSource<UserJsonPlaceholder>();
+  public users: UserJsonPlaceholder[] = [];
 
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserJsonPlaceholderService) {}
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe((res: User[]) => {
+    this.userService.getUser().subscribe((res: UserJsonPlaceholder[]) => {
       this.users = res;
       this.length = this.users.length;
       this.dataSource.paginator = this.paginator;

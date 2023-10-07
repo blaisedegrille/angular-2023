@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    CdkStepperModule,
   ],
   exports: [
     MatSidenavModule,
@@ -49,6 +51,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    CdkStepperModule,
   ],
 })
 export class MaterialModule {}

@@ -19,19 +19,15 @@ export class DynamicGridComponent extends BaseGridComponent<User> {
         header: 'No.',
       },
       {
-        name: 'title',
-        header: 'Title',
+        name: 'name',
+        header: 'Name',
       },
       {
-        name: 'body',
-        header: 'Body',
-      },
-      {
-        name: 'userId',
-        header: 'UserId',
+        name: 'email',
+        header: 'Email',
       },
     ],
-    columns: ['id', 'title', 'body', 'userId'],
+    columns: ['id', 'name', 'email'],
     // headers: ['No.', 'Title', 'Body', 'UserId'],
   };
 

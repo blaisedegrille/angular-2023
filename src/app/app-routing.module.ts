@@ -8,12 +8,14 @@ import { DynamicGridComponent } from './layout/components/dynamic-grid/dynamic-g
 import { DataTableComponent } from './layout/components/datatable/datatable.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dynamic-grid', component: DynamicGridComponent },
   { path: 'maintenance', component: MaintenanceComponent },
   { path: 'datatable', component: DataTableComponent },
   { path: 'user', component: UserComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
