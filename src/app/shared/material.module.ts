@@ -14,8 +14,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { CdkStepperModule } from '@angular/cdk/stepper';
-
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule } from '@angular/material/core';
 @NgModule({
   imports: [
     MatSidenavModule,
@@ -34,6 +41,10 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
     MatDatepickerModule,
     MatNativeDateModule,
     CdkStepperModule,
+    FormsModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRippleModule,
   ],
   exports: [
     MatSidenavModule,
@@ -52,6 +63,20 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
     MatDatepickerModule,
     MatNativeDateModule,
     CdkStepperModule,
+    FormsModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRippleModule,
+  ],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {},
+    },
   ],
 })
 export class MaterialModule {}

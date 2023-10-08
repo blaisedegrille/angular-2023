@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 import {
@@ -16,7 +17,7 @@ export class DynamicGridComponent extends BaseGridComponent<User> {
     display: [
       {
         name: 'id',
-        header: 'No.',
+        header: 'Id',
       },
       {
         name: 'name',
@@ -27,12 +28,15 @@ export class DynamicGridComponent extends BaseGridComponent<User> {
         header: 'Email',
       },
     ],
-    columns: ['id', 'name', 'email'],
+    columns: ['id', 'name', 'email', 'select'],
     // headers: ['No.', 'Title', 'Body', 'UserId'],
   };
 
-  constructor(private readonly userService: UserService) {
-    super();
+  constructor(
+    private readonly userService: UserService,
+    public override dialog: MatDialog
+  ) {
+    super(dialog);
     super.service = userService;
     super.displayedColumns = this.cols;
   }

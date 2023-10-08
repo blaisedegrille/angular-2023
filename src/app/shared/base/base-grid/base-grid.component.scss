@@ -1,0 +1,17 @@
+::ng-deep .demo-table {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+::ng-deep .demo-row-is-clicked {
+  font-weight: bold;
+}
