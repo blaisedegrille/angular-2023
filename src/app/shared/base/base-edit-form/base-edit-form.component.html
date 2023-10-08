@@ -1,7 +1,37 @@
-<div class="container">
+<div class="container" *ngIf="form">
   <h1>Dynamic Edit form</h1>
   <span>Dinamikusan generált form.</span>
   <br />
   <br />
+  <!--   <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput />
+  </mat-form-field> -->
+
+  <form [formGroup]="form" style="display: block">
+    <div style="width: 100%">
+      <mat-form-field appearance="outline" [style.width.%]="100">
+        <mat-label>Name</mat-label>
+        <input matInput [formControlName]="'name'" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <!-- <mat-hint>Hint</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div style="width: 100%">
+      <mat-form-field appearance="outline" [style.width.%]="100">
+        <mat-label>Email</mat-label>
+        <input matInput [formControlName]="'email'" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <!-- <mat-hint>Hint</mat-hint> -->
+      </mat-form-field>
+    </div>
+  </form>
+
+  <span>{{ data | json }}</span>
 </div>
 <!-- <cdk-step>asd</cdk-step> -->
