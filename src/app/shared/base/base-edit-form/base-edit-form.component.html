@@ -1,17 +1,8 @@
-<div class="container" *ngIf="form">
+<div class="container" *ngIf="false">
   <h1>Dynamic Edit form</h1>
   <span>Dinamikusan generált form.</span>
   <br />
   <br />
-  <!--   <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput />
-  </mat-form-field> -->
-
   <form [formGroup]="form" style="display: block">
     <div style="width: 100%">
       <mat-form-field appearance="outline" [style.width.%]="100">
@@ -34,4 +25,5 @@
 
   <span>{{ data | json }}</span>
 </div>
-<!-- <cdk-step>asd</cdk-step> -->
+
+<ang23-dynamic-form [questions]="questions$ | async"></ang23-dynamic-form>

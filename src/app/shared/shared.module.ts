@@ -7,6 +7,7 @@ import { BaseGridComponent } from './base/base-grid/base-grid.component';
 import { BaseEditFormComponent } from './base/base-edit-form/base-edit-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './base/dynamic-form/dynamic-form.component';
+import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-field/dynamic-form-field.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { DynamicFormComponent } from './base/dynamic-form/dynamic-form.component
     BaseGridComponent,
     BaseEditFormComponent,
     DynamicFormComponent,
+    DynamicFormFieldComponent,
   ],
   imports: [
     CommonModule,
