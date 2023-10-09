@@ -1,0 +1,9 @@
+// mixin that enables css variables in light mode
+@mixin lighten() {
+  @include mat.all-component-themes($my-light-theme);
+}
+
+// mixin that enables css variables in dark mode
+@mixin darken() {
+  @include mat.all-component-themes($my-dark-theme);
+}

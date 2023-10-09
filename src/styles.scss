@@ -1,5 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
 @import "../node_modules/@swimlane/ngx-datatable/themes/material.scss";
+@import "./styles/theme_variables";
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$purple-palette, 500);
+$my-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+
+$my-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+    density: 0,
+  )
+);
+
+$my-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+    density: 0,
+  )
+);
+
+// Emit theme-dependent styles for common features used across multiple components.
+// @include mat.all-component-themes($my-theme);
+//@include mat.core-theme($my-theme);
+//@include mat.button-theme($my-theme);
+
+body.dark {
+  @include darken();
+}
+body.light {
+  @include lighten();
+}
+
+@media (prefers-color-scheme: light) {
+  // Use the `-color` mixins to only apply color styles without reapplying the same
+  // typography and density styles.
+  @include mat.all-component-themes($my-light-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+  // Use the `-color` mixins to only apply color styles without reapplying the same
+  // typography and density styles.
+  @include mat.all-component-themes($my-dark-theme);
+}
 
 html,
 body {

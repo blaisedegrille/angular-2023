@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './layout/components/home/home.component';
-import { SettingsComponent } from './layout/components/settings/settings.component';
-import { UserComponent } from './layout/components/user/user.component';
-import { MaintenanceComponent } from './layout/components/maintenance/maintenance.component';
-import { DynamicGridComponent } from './layout/components/dynamic-grid/dynamic-grid.component';
-import { DataTableComponent } from './layout/components/datatable/datatable.component';
+import { HomeComponent } from './pages/components/home/home.component';
+import { SettingsComponent } from './pages/components/settings/settings.component';
+import { UserComponent } from './pages/components/user/user.component';
+import { MaintenanceComponent } from './pages/components/maintenance/maintenance.component';
+import { DynamicGridComponent } from './pages/components/dynamic-grid/dynamic-grid.component';
+import { DataTableComponent } from './pages/components/datatable/datatable.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

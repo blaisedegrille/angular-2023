@@ -8,6 +8,7 @@ import { BaseEditFormComponent } from './base/base-edit-form/base-edit-form.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './base/dynamic-form/dynamic-form.component';
 import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-field/dynamic-form-field.component';
+import { ModeToggleModule } from './mode-toggle/mode-toggle.module';
 
 @NgModule({
   declarations: [
