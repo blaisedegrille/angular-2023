@@ -17,6 +17,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ModeToggleModule } from './shared/mode-toggle/mode-toggle.module';
 
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyBlAtDNjjp49JdGiNI687twaaCQ2EBIa9c',
+  authDomain: 'angular-2023-bb816.firebaseapp.com',
+  projectId: 'angular-2023-bb816',
+  storageBucket: 'angular-2023-bb816.appspot.com',
+  messagingSenderId: '1090245849483',
+  appId: '1:1090245849483:web:2f2713aa29cc6ba381ff8e',
+  measurementId: 'G-165ERMPD4K',
+};
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
 @NgModule({
   declarations: [AppComponent, SampleComponent],
   imports: [
