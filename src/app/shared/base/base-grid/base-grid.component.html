@@ -19,11 +19,27 @@
     </button>
   </div>
   <br />
+  <mat-accordion class="example-headers-align" multi expanded="true">
+    <!-- Users json -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Filter </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Search</mat-label>
+          <input matInput />
+          <mat-icon matSuffix>search</mat-icon>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
   <br />
-
   <div>
     <mat-table
       *ngIf="displayedColumns"
+      matSort
       [dataSource]="dataSource"
       class="mat-elevation-z10 demo-table"
     >
@@ -32,7 +48,7 @@
         *ngFor="let column of displayedColumns?.display; let index"
         [matColumnDef]="column.name"
       >
-        <mat-header-cell *matHeaderCellDef>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
           {{ column.header }}
         </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{ row[column.name] }} </mat-cell>

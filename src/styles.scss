@@ -36,11 +36,12 @@ $my-dark-theme: mat.define-dark-theme(
 
 body.dark {
   @include darken();
+  color: whitesmoke;
 }
 body.light {
   @include lighten();
 }
-
+/*
 @media (prefers-color-scheme: light) {
   // Use the `-color` mixins to only apply color styles without reapplying the same
   // typography and density styles.
@@ -51,7 +52,7 @@ body.light {
   // Use the `-color` mixins to only apply color styles without reapplying the same
   // typography and density styles.
   @include mat.all-component-themes($my-dark-theme);
-}
+} */
 
 html,
 body {
