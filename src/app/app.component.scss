@@ -4,12 +4,15 @@
   left: 0;
   right: 0;
   z-index: 2;
+  margin-bottom: 50px;
 }
+
 .example-container {
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  margin-top: 56px;
-  overflow-y: auto;
+  padding-top: 60px;
+  display: block;
+  //   overflow-y: hidden;
 }
 
 .mat-list-item {
@@ -23,7 +26,7 @@
 }
 
 .example-sidenav {
-  padding: 0px;
+  padding-top: 56px;
 }
 
 .example-spacer {
@@ -45,6 +48,7 @@ section {
 
 .example-button-row {
   display: table-cell;
+
   max-width: 600px;
 }
 
@@ -62,4 +66,9 @@ section {
   display: flex;
   justify-content: center;
   width: 120px;
+}
+
+.github-logo {
+  margin-top: 6px;
+  margin-right: 6px;
 }

@@ -8,6 +8,7 @@ import { DataTableComponent } from './components/datatable/datatable.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.com
     DataTableComponent,
     HomeComponent,
     DynamicGridComponent,
+    HeaderComponent,
   ],
   imports: [CommonModule, SharedModule],
+  exports: [HeaderComponent],
 })
 export class LayoutModule {}

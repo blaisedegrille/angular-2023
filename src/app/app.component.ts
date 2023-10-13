@@ -32,4 +32,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  openGithubRepo() {
+    const url = 'https://github.com/blaisedegrille/angular-2023';
+    window.open(url, '_blank');
+  }
 }

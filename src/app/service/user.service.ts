@@ -22,28 +22,28 @@ export class UserService {
   private tmp: User[] = [
     {
       id: 1,
-      name: 'Farkas András',
-      email: 'Legnagyobb király',
+      name: 'Test User 1',
+      email: 'test1@email.com',
     },
     {
       id: 2,
-      name: 'Horváth Gáspár Kristóf',
-      email: 'Legnagyobb király',
+      name: 'Test User 2',
+      email: 'test2@email.com',
     },
     {
       id: 3,
-      name: 'Halász Roland',
-      email: 'Legnagyobb király',
+      name: 'Test User 3',
+      email: 'test3@email.com',
     },
     {
       id: 4,
-      name: 'Csörge Attila',
-      email: 'Legnagyobb király',
+      name: 'Test User 4',
+      email: 'test4@email.com',
     },
     {
       id: 5,
-      name: 'Prisztács Attila',
-      email: 'Legnagyobb király',
+      name: 'Test User 5',
+      email: 'test5@email.com',
     },
   ];
 }
