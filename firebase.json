@@ -1,10 +1,6 @@
 {
   "hosting": {
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
+    "public": "dist/angular-2023/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }
