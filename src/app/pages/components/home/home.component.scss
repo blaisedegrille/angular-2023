@@ -2,5 +2,19 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  top: 50%;
+  max-height: 200px;
+}
+
+div {
+  height: 100%;
+  //background: linear-gradient(to bottom, #9c27b0 0%, #33ccff 100%);
+  background: linear-gradient(to bottom, #9c27b0 0%, #303030 80%);
+  /*   background: linear-gradient(
+    to bottom,
+    #9c27b0 0%,
+    #33ccff 20%,
+    #424242 60%,
+    #303030 100%
+  ); */
 }

@@ -4,10 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BaseEditFormComponent } from '../base-edit-form/base-edit-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
-import { User } from 'src/app/models/user';
-import { Observable } from 'rxjs';
-import { QuestionBase } from '../dynamic-form/question/question-base';
-import { QuestionService } from '../dynamic-form/question/question.service';
+
+import { DisplayedColumns } from 'src/app/models/displayed-columns';
 
 @Component({
   selector: 'ang23-base-grid',
@@ -110,10 +108,4 @@ export class BaseGridComponent<T> {
       : this.dataSource.data.forEach((row) => this.selection.select(row));
     console.log('toggleAllRows() ', this.selection);
   }
-}
-
-export interface DisplayedColumns {
-  display: any[];
-  columns: string[];
-  // headers: string[];
 }

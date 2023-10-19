@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DisplayedColumns } from 'src/app/models/displayed-columns';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
-import {
-  BaseGridComponent,
-  DisplayedColumns,
-} from 'src/app/shared/base/base-grid/base-grid.component';
+import { BaseGridComponent } from 'src/app/shared/base/base-grid/base-grid.component';
 
 @Component({
   selector: 'ang23-dynamic-grid',

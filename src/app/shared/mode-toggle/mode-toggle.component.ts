@@ -11,15 +11,17 @@ import { Mode } from './mode-toggle.model';
 export class ModeToggleComponent implements OnInit {
   icon_name = 'dark_mode';
 
-  constructor(private modeToggleService: ModeToggleService) {}
+  constructor(private modeToggleService: ModeToggleService) {
+    this.modeToggleService.modeChanged$.subscribe((mode: Mode) => {
+      this.icon_name = mode === Mode.DARK ? 'light_mode' : 'dark_mode';
+    });
+  }
 
   ngOnInit(): void {
     console.log('body: ', document.getElementsByTagName('body'));
   }
 
   toggle() {
-    this.icon_name =
-      this.icon_name === 'dark_mode' ? 'light_mode' : 'dark_mode';
     this.modeToggleService.toggleMode();
   }
 }

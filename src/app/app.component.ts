@@ -21,14 +21,14 @@ export class AppComponent implements OnInit {
     { name: 'Settings', route: 'settings' },
   ];
 
-  currentMode: Mode = Mode.LIGHT;
+  // currentMode: Mode = Mode.LIGHT;
   constructor(private modeToggleService: ModeToggleService) {
     /**
      * Example code that demonstrate the modeChanged$ observable behavior and usage
      */
-    this.modeToggleService.modeChanged$.subscribe((mode: Mode) => {
+    /*     this.modeToggleService.modeChanged$.subscribe((mode: Mode) => {
       this.currentMode = mode;
-    });
+    }); */
   }
 
   ngOnInit(): void {}

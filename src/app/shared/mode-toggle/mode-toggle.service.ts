@@ -79,4 +79,8 @@ export class ModeToggleService {
       this.updateCurrentMode(Mode.LIGHT);
     }
   }
+
+  getCurrentMode(): Mode {
+    return this.modeStorage.get();
+  }
 }

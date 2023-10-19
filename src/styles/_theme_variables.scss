@@ -2,9 +2,31 @@
 @mixin lighten() {
   @include mat.all-component-themes($my-light-theme);
   // @include mat.input
+  .ang23-container {
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff 0%, #9c27b0 100%);
+    padding: 30px;
+  }
+  .ang23-dialog {
+    height: 100%;
+    //background: linear-gradient(to bottom, #ffffff 0%, #9c27b0 100%);
+    padding: 30px;
+  }
 }
 
 // mixin that enables css variables in dark mode
 @mixin darken() {
   @include mat.all-component-themes($my-dark-theme);
+  color: whitesmoke;
+  .ang23-container {
+    height: 100%;
+    background: linear-gradient(to bottom, #9c27b0 10%, #303030 60%);
+    padding: 30px;
+  }
+
+  .ang23-dialog {
+    height: 100%;
+    //background: linear-gradient(to bottom, #ffffff 0%, #9c27b0 100%);
+    padding: 30px;
+  }
 }

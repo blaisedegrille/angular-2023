@@ -36,7 +36,6 @@ $my-dark-theme: mat.define-dark-theme(
 
 body.dark {
   @include darken();
-  color: whitesmoke;
 }
 body.light {
   @include lighten();
@@ -63,6 +62,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.container {
+/* .container {
   padding: 30px;
 }
+ */
