@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
 
 import { DisplayedColumns } from 'src/app/models/displayed-columns';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
+import { MatSort, Sort } from '@angular/material/sort';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'ang23-base-grid',
@@ -13,10 +16,12 @@ import { DisplayedColumns } from 'src/app/models/displayed-columns';
   styleUrls: ['./base-grid.component.scss'],
 })
 export class BaseGridComponent<T> {
+  showCdkTable = false;
   protected displayedColumns: DisplayedColumns | undefined;
   protected dataSource = new MatTableDataSource<T>();
   protected service: any;
 
+  public searchValue = '';
   public clickedRows = new Set<T>();
   public selection: SelectionModel<T> = new SelectionModel<T>();
   public initialSelection = [];
@@ -28,11 +33,14 @@ export class BaseGridComponent<T> {
   public pageIndex = 0;
   public pageEvent!: PageEvent;
 
+  @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   public collection: T[] = [];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog /* public _liveAnnouncer: LiveAnnouncer */
+  ) {}
 
   ngOnInit(): void {
     console.log('szülő');
@@ -52,6 +60,7 @@ export class BaseGridComponent<T> {
       this.collection = res;
       this.length = this.collection.length;
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
       //this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.data = this.collection;
     });
@@ -62,13 +71,44 @@ export class BaseGridComponent<T> {
       this.collection = res;
       this.length = this.collection.length;
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
       //this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.data = this.collection;
     });
   }
 
+  searchInputChange(event: any) {
+    if (this.searchValue.length > 1) {
+      let searchResult: T[] = [];
+      this.collection.forEach((e: any) => {
+        for (let key in e) {
+          if (typeof e[key] === 'string') {
+            // console.log(this.searchValue);
+            if (e[key].toLowerCase().includes(this.searchValue.toLowerCase())) {
+              searchResult.push(e);
+            }
+          }
+        }
+      });
+      this.dataSource.data = searchResult;
+    } else {
+      this.dataSource.data = this.collection;
+    }
+  }
+
   openDialog(element: any): void {
     const dialogRef = this.dialog.open(BaseEditFormComponent, {
+      data: element[0],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.selection.clear();
+    });
+  }
+
+  removeHandler(element: any): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: element[0],
     });
 
@@ -107,5 +147,18 @@ export class BaseGridComponent<T> {
       ? this.selection.clear()
       : this.dataSource.data.forEach((row) => this.selection.select(row));
     console.log('toggleAllRows() ', this.selection);
+  }
+
+  /** Announce the change in sort state for assistive technology. */
+  sortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    /*     if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    } */
   }
 }
