@@ -4,7 +4,7 @@
   <br />
   <br />
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <form [formGroup]="form">
     <div *ngFor="let question of questions" class="form-row">
       <ang23-dynamic-form-field
         [question]="question"
@@ -12,14 +12,17 @@
       ></ang23-dynamic-form-field>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" style="gap: 5%; display: flex">
       <button
         mat-raised-button
-        type="submit"
+        (click)="onSubmit()"
         color="primary"
         [disabled]="!form.valid"
       >
         Save
+      </button>
+      <button mat-raised-button color="accent" (click)="onCancel()">
+        Cancel
       </button>
     </div>
   </form>

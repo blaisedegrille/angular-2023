@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionBase } from './question/question-base';
 import { QuestionControlService } from './question/question-control.service';
@@ -14,6 +14,9 @@ export class DynamicFormComponent implements OnInit {
   form!: FormGroup;
   payLoad = '';
 
+  @Output()
+  cancel: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private qcs: QuestionControlService) {}
 
   ngOnInit() {
@@ -22,5 +25,9 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+  }
+
+  onCancel() {
+    this.cancel.emit(true);
   }
 }
