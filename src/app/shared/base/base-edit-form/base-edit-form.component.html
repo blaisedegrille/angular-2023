@@ -26,4 +26,7 @@
   <span>{{ data | json }}</span>
 </div>
 
-<ang23-dynamic-form [questions]="questions$ | async"></ang23-dynamic-form>
+<ang23-dynamic-form
+  [questions]="questions$ | async"
+  (cancel)="onNoClick()"
+></ang23-dynamic-form>
