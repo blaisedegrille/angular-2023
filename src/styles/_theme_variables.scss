@@ -1,6 +1,8 @@
 // mixin that enables css variables in light mode
 @mixin lighten() {
   @include mat.all-component-themes($my-light-theme);
+  @include mat.checkbox-theme($my-light-button-theme);
+
   // @include mat.input
   .ang23-container {
     height: 100%;
@@ -17,6 +19,12 @@
 // mixin that enables css variables in dark mode
 @mixin darken() {
   @include mat.all-component-themes($my-dark-theme);
+  @include mat.button-theme($my-dark-button-theme);
+  @include mat.select-theme($my-dark-button-theme);
+  @include mat.option-theme($my-dark-button-theme);
+  @include mat.input-theme($my-dark-button-theme);
+  @include mat.form-field-theme($my-dark-button-theme);
+
   color: whitesmoke;
   .ang23-container {
     height: 100%;
