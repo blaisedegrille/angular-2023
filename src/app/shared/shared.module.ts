@@ -8,6 +8,7 @@ import { BaseEditFormComponent } from './base/base-edit-form/base-edit-form.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './base/dynamic-form/dynamic-form.component';
 import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-field/dynamic-form-field.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-fiel
     BaseEditFormComponent,
     DynamicFormComponent,
     DynamicFormFieldComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -23,6 +23,8 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
+import { CdkColumnDef } from '@angular/cdk/table';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   imports: [
     MatSidenavModule,
@@ -44,6 +46,7 @@ import { MatRippleModule } from '@angular/material/core';
     FormsModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatSortModule,
     MatRippleModule,
   ],
   exports: [
@@ -66,6 +69,7 @@ import { MatRippleModule } from '@angular/material/core';
     FormsModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatSortModule,
     MatRippleModule,
   ],
   providers: [
@@ -77,6 +81,10 @@ import { MatRippleModule } from '@angular/material/core';
       provide: MAT_DIALOG_DATA,
       useValue: {},
     },
+    /*     {
+      provide: CdkColumnDef,
+      useValue: {},
+    }, */
   ],
 })
 export class MaterialModule {}
