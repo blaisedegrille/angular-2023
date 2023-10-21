@@ -1,23 +1,31 @@
 <div class="ang23-container">
-  <h1>Dynamic Grid</h1>
-  <span>Dinamikusan generált grid. Reload gombon valós http call dörren.</span>
-  <br />
-  <br />
-  <div style="gap: 5%; display: flex">
-    <button mat-raised-button (click)="loadDefaults()">Default</button>
-    <button mat-raised-button color="primary" (click)="reloadFromService()">
-      Reload
-    </button>
-
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!selection.hasValue()"
-      (click)="openDialog(selection.selected)"
+  <div class="ang23-header">
+    <h1>Dynamic Grid</h1>
+    <span
+      >Dinamikusan generált grid. Reload gombon valós http call dörren. Default
+      gombra kattintva statikus adatokat láthatunk.</span
     >
-      Update
-    </button>
   </div>
+
+  <br />
+  <br />
+  <mat-card style="padding: 10px">
+    <div style="gap: 5%; display: flex">
+      <button mat-raised-button (click)="loadDefaults()">Default</button>
+      <button mat-raised-button color="primary" (click)="reloadFromService()">
+        Reload
+      </button>
+
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!selection.hasValue()"
+        (click)="openDialog(selection.selected)"
+      >
+        Update
+      </button>
+    </div>
+  </mat-card>
   <br />
   <mat-accordion class="example-headers-align" multi expanded="true">
     <!-- Users json -->
@@ -133,12 +141,12 @@
 
   <br />
   <br />
-  <div>
+  <!--   <div>
     <h3>Current selection</h3>
     <span *ngIf="selection.selected.length">{{
       selection.selected | json
     }}</span>
-  </div>
+  </div> -->
 
   <!-- cdk table not displayed -->
   <div *ngif class="mat-elevation-z8" style="padding: 5px">

@@ -83,7 +83,6 @@ export class BaseGridComponent<T> {
       this.collection.forEach((e: any) => {
         for (let key in e) {
           if (typeof e[key] === 'string') {
-            // console.log(this.searchValue);
             if (e[key].toLowerCase().includes(this.searchValue.toLowerCase())) {
               searchResult.push(e);
             }

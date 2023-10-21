@@ -63,9 +63,11 @@ $my-dark-button-theme: mat.define-dark-theme(
 
 body.dark {
   @include darken();
+  background: linear-gradient(to bottom, #9c27b0 10%, #303030 60%);
 }
 body.light {
   @include lighten();
+  background: linear-gradient(to bottom, #ffffff 0%, #9c27b0 100%);
 }
 /*
 @media (prefers-color-scheme: light) {
@@ -83,8 +85,7 @@ body.light {
 html,
 body {
   height: 100%;
-}
-body {
+
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

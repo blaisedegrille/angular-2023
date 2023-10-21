@@ -13,10 +13,11 @@
   display: contents;
 }
 
+// teljes app
 .example-container {
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  padding-top: 60px;
+  padding-top: 55px;
   display: block;
   //   overflow-y: hidden;
 }
@@ -25,10 +26,14 @@
   padding: 0;
 }
 
+::ng-deep .mat-drawer-container {
+  background-color: unset !important;
+}
+
 .example-sidenav-content {
-  display: block;
-  height: 100%;
   width: 100%;
+  height: fit-content;
+  //  background: linear-gradient(to bottom, #ffffff 0%, #9c27b0 100%);
 }
 
 .example-sidenav {
