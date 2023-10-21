@@ -3,21 +3,33 @@
     <h1>Dashboard</h1>
     <span>Chartjs library</span>
   </div>
-
   <br />
   <br />
-
-  <canvas
-    class="chart"
-    baseChart
-    [data]="barChartData"
-    [options]="barChartOptions"
-    [type]="barChartType"
-    (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)"
-  >
-  </canvas>
-  <button mat-button mat-raised-button color="primary" (click)="randomize()">
-    Update
-  </button>
+  <mat-card style="padding: 10px">
+    <div style="gap: 5%; display: flex">
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        (click)="randomize()"
+      >
+        Update
+      </button>
+    </div>
+  </mat-card>
+  <br />
+  <mat-card>
+    <mat-card-content style="display: flexbox">
+      <canvas
+        class="chart"
+        baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="barChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"
+      >
+      </canvas>
+    </mat-card-content>
+  </mat-card>
 </div>
