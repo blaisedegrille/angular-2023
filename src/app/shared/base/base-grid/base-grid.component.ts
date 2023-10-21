@@ -44,7 +44,8 @@ export class BaseGridComponent<T> {
 
   ngOnInit(): void {
     console.log('szülő');
-    this.reloadFromService();
+    // this.reloadFromService();
+    this.loadDefaults();
   }
 
   ngAfterViewInit() {

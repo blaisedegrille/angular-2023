@@ -1,9 +1,9 @@
 <div class="ang23-container">
   <div class="ang23-header">
-    <h1>Dynamic Grid</h1>
+    <h1>Dynamic Table</h1>
     <span
-      >Dinamikusan generált grid. Reload gombon valós http call dörren. Default
-      gombra kattintva statikus adatokat láthatunk.</span
+      >Dinamikusan generált táblázat. Reload gombon valós http call dörren.
+      Default gombra kattintva statikus adatokat láthatunk.</span
     >
   </div>
 
@@ -27,13 +27,13 @@
     </div>
   </mat-card>
   <br />
-  <mat-accordion class="example-headers-align" multi expanded="true">
+  <mat-accordion class="example-headers-align" multi>
     <!-- Users json -->
-    <mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title> Filter </mat-panel-title>
       </mat-expansion-panel-header>
-      <div>
+      <div class="row" style="display: flex; gap: 3%">
         <mat-form-field appearance="outline" [style.width.%]="100">
           <mat-label>Search</mat-label>
           <input
@@ -43,6 +43,27 @@
           />
           <mat-icon matSuffix>search</mat-icon>
           <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker">
+            <input matStartDate placeholder="Start date" />
+            <input matEndDate placeholder="End date" />
+          </mat-date-range-input>
+          <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="rangePicker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button mat-button matDateRangePickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDateRangePickerApply>
+                Apply
+              </button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
         </mat-form-field>
       </div>
     </mat-expansion-panel>
