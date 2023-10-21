@@ -1,15 +1,15 @@
 .center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 50%;
+  margin: auto;
   max-height: 200px;
+
+  position: static;
 }
 
 div {
   height: 100%;
   //background: linear-gradient(to bottom, #9c27b0 0%, #33ccff 100%);
-  background: linear-gradient(to bottom, #9c27b0 0%, #303030 80%);
+  // background: linear-gradient(to bottom, #9c27b0 0%, #303030 80%);
   /*   background: linear-gradient(
     to bottom,
     #9c27b0 0%,

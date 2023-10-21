@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
   componentList: Menu[] = [
     { name: 'Home', route: 'home' },
     { name: 'Dynamic Grid', route: 'dynamic-grid' },
-    { name: 'Maintenance', route: 'maintenance' },
+    /*     { name: 'Maintenance', route: 'maintenance' },
     { name: 'DataTable', route: 'datatable' },
     { name: 'User', route: 'user' },
-    { name: 'Settings', route: 'settings' },
+    { name: 'Settings', route: 'settings' }, */
   ];
 
   // currentMode: Mode = Mode.LIGHT;
