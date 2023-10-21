@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
   showFiller = false;
   componentList: Menu[] = [
     { name: 'Home', route: 'home' },
-    { name: 'Dynamic Grid', route: 'dynamic-grid' },
+    { name: 'Dynamic Table', route: 'dynamic-grid' },
+    { name: 'Dashboard', route: 'dashboard' },
     /*     { name: 'Maintenance', route: 'maintenance' },
     { name: 'DataTable', route: 'datatable' },
     { name: 'User', route: 'user' },

@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     DynamicGridComponent,
     HeaderComponent,
+    DashboardComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [HeaderComponent],
