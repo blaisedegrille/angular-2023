@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HeaderComponent,
     DashboardComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, NgChartsModule],
   exports: [HeaderComponent],
 })
 export class LayoutModule {}
