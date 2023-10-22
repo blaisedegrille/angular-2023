@@ -7,17 +7,21 @@ import { MaintenanceComponent } from './pages/components/maintenance/maintenance
 import { DynamicGridComponent } from './pages/components/dynamic-grid/dynamic-grid.component';
 import { DataTableComponent } from './pages/components/datatable/datatable.component';
 import { DashboardComponent } from './pages/components/dashboard/dashboard.component';
+import { EditorComponent } from './pages/editor/editor.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dynamic-grid', component: DynamicGridComponent },
+  { path: 'editor', component: EditorComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'maintenance', component: MaintenanceComponent },
   { path: 'datatable', component: DataTableComponent },
   { path: 'user', component: UserComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: '**', redirectTo: 'home' },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({

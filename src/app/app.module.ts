@@ -23,6 +23,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
 import { NgChartsModule } from 'ng2-charts';
+import { NgxEditorModule } from 'ngx-editor';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
