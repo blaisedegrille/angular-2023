@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './base/dynamic-form/dynamic-form.component';
 import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-field/dynamic-form-field.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     DynamicFormComponent,
     DynamicFormFieldComponent,
     ConfirmDialogComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     NgxDatatableModule,
     BaseMaintenanceComponent,
     BaseEditFormComponent,
+    NgxEditorModule,
   ],
 })
 export class SharedModule {}

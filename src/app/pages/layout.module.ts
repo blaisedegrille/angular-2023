@@ -11,6 +11,7 @@ import { DynamicGridComponent } from './components/dynamic-grid/dynamic-grid.com
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgChartsModule } from 'ng2-charts';
     DynamicGridComponent,
     HeaderComponent,
     DashboardComponent,
+    EditorComponent,
   ],
   imports: [CommonModule, SharedModule, NgChartsModule],
   exports: [HeaderComponent],

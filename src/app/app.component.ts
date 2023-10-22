@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
     { name: 'Home', route: 'home' },
     { name: 'Dynamic Table', route: 'dynamic-grid' },
     { name: 'Dashboard', route: 'dashboard' },
+    { name: 'Editor', route: 'editor' },
+    { name: 'Something', route: 'something' },
     /*     { name: 'Maintenance', route: 'maintenance' },
     { name: 'DataTable', route: 'datatable' },
     { name: 'User', route: 'user' },

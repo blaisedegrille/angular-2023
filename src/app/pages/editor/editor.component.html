@@ -1,0 +1,22 @@
+<div class="ang23-container">
+  <div class="ang23-header">
+    <h1>Rich text editor</h1>
+    <span>ngx-editor</span>
+  </div>
+
+  <br />
+  <br />
+  <!--   <div id="editorjs"></div>
+ -->
+  <div class="NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+    <ngx-editor
+      [editor]="editor"
+      [(ngModel)]="html"
+      [disabled]="false"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+  </div>
+
+  <div [innerHTML]="html"></div>
+</div>
