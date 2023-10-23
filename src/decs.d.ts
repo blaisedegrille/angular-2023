@@ -1,1 +1,1 @@
-declare module 'my-untyped-module';
+declare module '@editorjs/list';
