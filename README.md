@@ -1,8 +1,8 @@
 <div align="center">
   <h1 align="center">bdg-angular23</h1>
 
-<br>
-<br>
+
+</br>
  <img src="https://github.com/blaisedegrille/bdg-angular23/blob/main/src/assets/logo.png">
 </div> 
 
