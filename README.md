@@ -1,5 +1,5 @@
 <div align="center">
- <img str="https://github.com/blaisedegrille/bdg-angular23/blob/main/src/assets/logo.png"><img>
+ <img src="https://github.com/blaisedegrille/bdg-angular23/blob/main/src/assets/logo.png">
 </div> 
 <h3 align="center">bdg-angular23</h3>
 
