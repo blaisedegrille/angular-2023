@@ -1,7 +1,7 @@
 <div align="center">
  <img src="https://github.com/blaisedegrille/bdg-angular23/blob/main/src/assets/logo.png">
 </div> 
-<h3 align="center">bdg-angular23</h3>
+<h1 align="center">bdg-angular23</h1>
 
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
