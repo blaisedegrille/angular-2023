@@ -5,6 +5,15 @@
   </div>
   <br />
   <br />
+
+  <mat-select [(ngModel)]="selectedValue">
+    <mat-option *ngFor="let valid of esValidoArr" [value]="valid.valor">
+      {{ valid.label }}
+    </mat-option>
+  </mat-select>
+  <br />
+  <br />
+
   <mat-card style="padding: 10px">
     <div style="gap: 5%; display: flex">
       <button

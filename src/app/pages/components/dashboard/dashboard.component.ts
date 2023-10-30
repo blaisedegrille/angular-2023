@@ -9,6 +9,11 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class DashboardComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  selectedValue = 1;
+  esValidoArr = [
+    { label: 'Yes', valor: 1 },
+    { label: 'No', valor: 0 },
+  ];
 
   public barChartOptions: ChartConfiguration['options'] = {
     elements: {
