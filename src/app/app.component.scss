@@ -17,9 +17,9 @@
 .example-container {
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  padding-top: 55px;
+  padding-top: 64px;
   display: block;
-  //   overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .mat-list-item {
@@ -28,6 +28,7 @@
 
 ::ng-deep .mat-drawer-container {
   background-color: unset !important;
+  overflow-y: hidden;
 }
 
 .example-sidenav-content {
@@ -37,7 +38,7 @@
 }
 
 .example-sidenav {
-  padding-top: 56px;
+  padding-top: 64px;
 }
 
 .example-spacer {
@@ -82,4 +83,13 @@ section {
 .github-logo {
   margin-top: 6px;
   margin-right: 6px;
+}
+
+ng-scrollbar {
+  --scroll-padding-left: 2px;
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: rgb(199, 199, 199);
+  --scrollbar-hover-size: 12px;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+  --scrollbar-border-radius: 10px;
 }

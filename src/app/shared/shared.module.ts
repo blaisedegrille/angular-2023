@@ -11,6 +11,7 @@ import { DynamicFormFieldComponent } from './base/dynamic-form/dynamic-form-fiel
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,16 @@ import { NgxEditorModule } from 'ngx-editor';
     NgxDatatableModule,
     FormsModule,
     ReactiveFormsModule,
+    NgScrollbarModule,
   ],
+
   exports: [
     MaterialModule,
     NgxDatatableModule,
     BaseMaintenanceComponent,
     BaseEditFormComponent,
     NgxEditorModule,
+    NgScrollbarModule,
   ],
 })
 export class SharedModule {}

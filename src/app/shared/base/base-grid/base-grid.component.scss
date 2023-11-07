@@ -30,3 +30,13 @@
   padding: 30px;
   text-align: center;
 }
+
+ng-scrollbar {
+  height: 400px;
+  --scroll-padding-left: 2px;
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: rgb(199, 199, 199);
+  --scrollbar-hover-size: 12px;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+  --scrollbar-border-radius: 10px;
+}

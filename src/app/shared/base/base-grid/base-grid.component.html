@@ -76,80 +76,82 @@
       [dataSource]="dataSource"
       class="mat-elevation-z10 demo-table"
     >
-      <!-- Selection Definition -->
-      <ng-container matColumnDef="select">
-        <mat-header-cell *matHeaderCellDef>
-          <span *ngIf="allowMultiSelect"></span>
-          <mat-checkbox
-            *ngIf="allowMultiSelect"
-            (change)="$event ? toggleAllRows() : null"
-            [checked]="selection.hasValue() && isAllSelected()"
-            [indeterminate]="selection.hasValue() && !isAllSelected()"
-          >
-          </mat-checkbox>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <mat-checkbox
-            (click)="$event.stopPropagation(); onSelectionChange(row)"
-            [checked]="selection.isSelected(row)"
-          >
-          </mat-checkbox>
-        </mat-cell>
-      </ng-container>
+      <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">
+        <!-- Selection Definition -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <span *ngIf="allowMultiSelect"></span>
+            <mat-checkbox
+              *ngIf="allowMultiSelect"
+              (change)="$event ? toggleAllRows() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+            >
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation(); onSelectionChange(row)"
+              [checked]="selection.isSelected(row)"
+            >
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
 
-      <!-- Dynamic Definitions -->
-      <ng-container
-        *ngFor="let column of displayedColumns?.display; let index"
-        [matColumnDef]="column.name"
-      >
-        <mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by"
+        <!-- Dynamic Definitions -->
+        <ng-container
+          *ngFor="let column of displayedColumns?.display; let index"
+          [matColumnDef]="column.name"
         >
-          {{ column.header }}
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{ row[column.name] }} </mat-cell>
-      </ng-container>
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by"
+          >
+            {{ column.header }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row[column.name] }} </mat-cell>
+        </ng-container>
 
-      <!-- Action Definition -->
-      <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openDialog(selection.selected)">
-              Módosítás
+        <!-- Action Definition -->
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-menu-item (click)="removeHandler(selection.selected)">
-              Törlés
-            </button>
-          </mat-menu>
-        </mat-cell>
-      </ng-container>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openDialog(selection.selected)">
+                Módosítás
+              </button>
+              <button mat-menu-item (click)="removeHandler(selection.selected)">
+                Törlés
+              </button>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
 
-      <!-- Header and Row Declarations -->
-      <mat-header-row
-        *matHeaderRowDef="displayedColumns?.columns"
-      ></mat-header-row>
-      <mat-row
-        matRipple
-        (click)="$event.stopPropagation(); onRowChange(row)"
-        [class.demo-row-is-clicked]="clickedRows.has(row)"
-        *matRowDef="let row; columns: displayedColumns?.columns"
-      ></mat-row>
+        <!-- Header and Row Declarations -->
+        <mat-header-row
+          *matHeaderRowDef="displayedColumns?.columns"
+        ></mat-header-row>
+        <mat-row
+          matRipple
+          (click)="$event.stopPropagation(); onRowChange(row)"
+          [class.demo-row-is-clicked]="clickedRows.has(row)"
+          *matRowDef="let row; columns: displayedColumns?.columns"
+        ></mat-row>
 
-      <div
-        style="padding: 25px; text-align: center"
-        class="no-data-row"
-        *matNoDataRow
-      >
-        <!--         <mat-cell *matCellDef> No data matching the filter </mat-cell>
+        <div
+          style="padding: 25px; text-align: center"
+          class="no-data-row"
+          *matNoDataRow
+        >
+          <!--         <mat-cell *matCellDef> No data matching the filter </mat-cell>
  -->
-        <span>Nothing to display.</span>
-      </div>
+          <span>Nothing to display.</span>
+        </div>
+      </ng-scrollbar>
     </mat-table>
     <mat-paginator
       class="mat-elevation-z10"

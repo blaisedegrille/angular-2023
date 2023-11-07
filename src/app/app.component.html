@@ -73,8 +73,9 @@
       >
     </mat-nav-list>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <router-outlet></router-outlet>
-  </div>
+  <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">
+    <div class="example-sidenav-content" style="padding-top: 10px">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-scrollbar>
 </mat-drawer-container>

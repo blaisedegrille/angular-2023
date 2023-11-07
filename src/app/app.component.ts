@@ -10,7 +10,7 @@ import { ModeToggleService } from './shared/mode-toggle/mode-toggle.service';
 })
 export class AppComponent implements OnInit {
   darkmode = true;
-  title = 'ang23';
+  title = 'bdq-ang23';
   showFiller = false;
   componentList: Menu[] = [
     { name: 'Home', route: 'home' },
