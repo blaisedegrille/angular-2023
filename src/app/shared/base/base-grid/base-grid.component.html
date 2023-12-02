@@ -74,6 +74,7 @@
       *ngIf="displayedColumns"
       matSort
       [dataSource]="dataSource"
+      (matSortChange)="announceSortChange($event)"
       class="mat-elevation-z10 demo-table"
     >
       <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">

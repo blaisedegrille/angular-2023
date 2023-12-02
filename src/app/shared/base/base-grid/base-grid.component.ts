@@ -78,6 +78,10 @@ export class BaseGridComponent<T> {
     });
   }
 
+  announceSortChange(sortState: Sort) {
+    console.log('sortState: ', sortState);
+  }
+
   searchInputChange(event: any) {
     if (this.searchValue.length > 1) {
       let searchResult: T[] = [];

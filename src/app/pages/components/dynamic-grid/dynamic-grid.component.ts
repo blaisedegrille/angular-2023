@@ -1,66 +1,80 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
 import { DisplayedColumns } from 'src/app/models/displayed-columns';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
-import { BaseGridComponent } from 'src/app/shared/base/base-grid/base-grid.component';
 
 @Component({
   selector: 'ang23-dynamic-grid',
-  templateUrl: '../../../shared/base/base-grid/base-grid.component.html',
+  templateUrl: './dynamic-grid.component.html',
   styleUrls: ['./dynamic-grid.component.scss'],
 })
-export class DynamicGridComponent extends BaseGridComponent<User> {
+export class DynamicGridComponent implements OnInit {
   public cols: DisplayedColumns = {
     display: [
       {
         name: 'id',
         header: 'Id',
+        type: 'number',
       },
       {
         name: 'name',
         header: 'Name',
+        type: 'string',
       },
       {
         name: 'email',
         header: 'Email',
+        type: 'string',
       },
     ],
     columns: ['select', 'id', 'name', 'email', 'action'],
-    // headers: ['No.', 'Title', 'Body', 'UserId'],
+  };
+  public paginationSizes: number[] = [5, 10, 15];
+  public defaultPageSize = this.paginationSizes[1];
+  public paginationLength: number = 0;
+  public pageIndex: number = 0;
+  public loading = false;
+  public tableData!: User[];
+  public pageEvent!: PageEvent;
+  public sortState: Sort = {
+    direction: '',
+    active: '',
   };
 
   constructor(
     private readonly userService: UserService,
-    public override dialog: MatDialog //public override _liveAnnouncer: LiveAnnouncer
-  ) {
-    super(dialog /* _liveAnnouncer */);
-    super.service = userService;
-    super.displayedColumns = this.cols;
+    public dialog: MatDialog
+  ) {}
+
+  public ngOnInit() {
+    console.log('DynamicGridComponent');
+    this.getTableData();
+    //this.initFilters();
+    //this.handleFilterEvent();
+  }
+  /*   initFilters() {
+    this.initFilterDropDowns();
+    this.initFilterForm();
+  } */
+
+  getTableData() {}
+
+  handlePageEvent(event: PageEvent) {
+    this.loading = true;
+    console.log('EVAT LIST COMP: ', event);
+    this.pageEvent = event;
+    this.pageIndex = event.pageIndex;
+    this.defaultPageSize = event.pageSize;
+    this.getTableData(this.castFilters(this.filters));
   }
 
-  public override ngOnInit() {
-    console.log('gyerek');
-    super.ngOnInit();
+  handleSortEvent(event: Sort) {
+    this.loading = true;
+    this.sortState = event;
+    console.log('EvatListComponent sortEvent: ', event);
+    this.getTableData(this.castFilters(this.filters));
   }
 }
-
-/*
-    {
-      name: 'id',
-      header: 'No.',
-    },
-    {
-      name: 'title',
-      header: 'Title',
-    },
-    {
-      name: 'body',
-      header: 'Body',
-    },
-    {
-      name: 'userId',
-      header: 'UserId',
-    },
-*/

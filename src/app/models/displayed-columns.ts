@@ -1,5 +1,10 @@
 export interface DisplayedColumns {
-  display: any[];
+  display: ColumnProps[];
   columns: string[];
-  // headers: string[];
+}
+
+export interface ColumnProps {
+  name: string;
+  header: string;
+  type: string;
 }
