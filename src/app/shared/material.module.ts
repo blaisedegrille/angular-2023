@@ -23,8 +23,9 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
-import { CdkColumnDef } from '@angular/cdk/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   imports: [
     MatSidenavModule,
@@ -48,6 +49,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatCheckboxModule,
     MatSortModule,
     MatRippleModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatSidenavModule,
@@ -71,6 +73,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatCheckboxModule,
     MatSortModule,
     MatRippleModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

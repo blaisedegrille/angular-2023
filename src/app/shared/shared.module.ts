@@ -12,6 +12,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { CustomTableComponent } from './custom-table/custom-table.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     DynamicFormFieldComponent,
     ConfirmDialogComponent,
     NotFoundComponent,
+    CustomTableComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     BaseEditFormComponent,
     NgxEditorModule,
     NgScrollbarModule,
+    CustomTableComponent,
   ],
 })
 export class SharedModule {}
