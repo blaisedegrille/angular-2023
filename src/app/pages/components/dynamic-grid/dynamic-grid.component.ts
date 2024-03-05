@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./dynamic-grid.component.scss'],
 })
 export class DynamicGridComponent implements OnInit {
-  public cols: DisplayedColumns = {
+  public displayedColumns: DisplayedColumns = {
     display: [
       {
         name: 'id',
@@ -33,21 +33,34 @@ export class DynamicGridComponent implements OnInit {
     columns: ['select', 'id', 'name', 'email', 'action'],
   };
   public paginationSizes: number[] = [5, 10, 15];
-  public defaultPageSize = this.paginationSizes[1];
+  public defaultPageSize = this.paginationSizes[0];
   public paginationLength: number = 0;
   public pageIndex: number = 0;
   public loading = false;
   public tableData!: User[];
+  public collection!: User[];
   public pageEvent!: PageEvent;
   public sortState: Sort = {
     direction: '',
     active: '',
   };
+  public searchValue = '';
 
   constructor(
     private readonly userService: UserService,
     public dialog: MatDialog
-  ) {}
+  ) {
+    this.userService.getDefaultData().subscribe({
+      next: (res: User[]) => {
+        this.collection = res;
+        this.tableData = res;
+      },
+      error: (err: any) => {
+        console.log('error: ', err);
+      },
+      complete: () => {},
+    });
+  }
 
   public ngOnInit() {
     console.log('DynamicGridComponent');
@@ -64,17 +77,95 @@ export class DynamicGridComponent implements OnInit {
 
   handlePageEvent(event: PageEvent) {
     this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
     console.log('EVAT LIST COMP: ', event);
     this.pageEvent = event;
     this.pageIndex = event.pageIndex;
     this.defaultPageSize = event.pageSize;
-    this.getTableData(this.castFilters(this.filters));
+    //this.getTableData(this.castFilters(this.filters));
   }
 
   handleSortEvent(event: Sort) {
     this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
     this.sortState = event;
     console.log('EvatListComponent sortEvent: ', event);
-    this.getTableData(this.castFilters(this.filters));
+    //this.getTableData(this.castFilters(this.filters));
   }
+
+  searchInputChange(event: any) {
+    if (this.searchValue.length > 1) {
+      let searchResult: User[] = [];
+      this.tableData.forEach((e: any) => {
+        for (let key in e) {
+          if (typeof e[key] === 'string') {
+            if (e[key].toLowerCase().includes(this.searchValue.toLowerCase())) {
+              searchResult.push(e);
+            }
+          }
+        }
+      });
+      this.tableData = searchResult;
+    } else {
+      this.tableData = this.collection;
+    }
+  }
+
+  /*   openDialog(element: any): void {
+    const dialogRef = this.dialog.open(BaseEditFormComponent, {
+      data: element[0],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.selection.clear();
+    });
+  } */
+
+  /*   removeHandler(element: any): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: element[0],
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.selection.clear();
+    });
+  } */
+
+  /*   onSelectionChange(element: T) {
+    console.log('onSelectionChange() ', element);
+    console.log('selected? ', this.selection.isSelected(element));
+    if (this.selection.isSelected(element)) {
+      this.selection.deselect(element);
+    } else {
+      this.selection.select(element);
+    }
+
+    console.log('', this.selection.selected);
+  } */
+
+  /*   onRowChange(element: T) {
+    console.log('onRowChange');
+    this.onSelectionChange(element);
+  } */
+
+  /*   isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected == numRows;
+  } */
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  /*   toggleAllRows() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row) => this.selection.select(row));
+    console.log('toggleAllRows() ', this.selection);
+  } */
 }

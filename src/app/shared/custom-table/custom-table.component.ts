@@ -1,7 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -9,11 +8,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import {
-  MatPaginator,
-  MatPaginatorIntl,
-  PageEvent,
-} from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DisplayedColumns } from 'src/app/models/displayed-columns';
@@ -63,6 +58,7 @@ export class CustomTableComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // this.tableDataSource.paginator = this.matPaginator;
     this.tableDataSource.sort = this.matSort;
+    this.tableDataSource.paginator = this.matPaginator;
 
     this.selection = new SelectionModel<any>(
       this.allowMultiSelect,
@@ -71,9 +67,9 @@ export class CustomTableComponent implements OnInit, AfterViewInit {
   }
 
   setTableDataSource(data: any) {
-    this.tableDataSource.sort = this.matSort;
+    // this.tableDataSource.sort = this.matSort;
     this.tableDataSource = new MatTableDataSource<any>(data);
-    // this.tableDataSource.paginator = this.matPaginator;
+    //     this.tableDataSource.paginator = this.matPaginator;
   }
 
   handlePageEvent(event: PageEvent) {

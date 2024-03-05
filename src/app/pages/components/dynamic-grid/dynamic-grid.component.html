@@ -1,12 +1,83 @@
-<ang23-custom-table
-  [displayedColumns]="displayedColumns"
-  [tableData]="tableData"
-  [paginationSizes]="paginationSizes"
-  [paginationLength]="paginationLength"
-  [defaultPageSize]="defaultPageSize"
-  [pageIndex]="pageIndex"
-  [loading]="loading"
-  (pageEvent)="emitPageEvent($event)"
-  (sortEvent)="emitSortEvent($event)"
->
-</ang23-custom-table>
+<div class="ang23-container">
+  <div class="ang23-header">
+    <h1>Dynamic Table</h1>
+    <span
+      >Dinamikusan generált táblázat. Reload gombon valós http call dörren.
+      Default gombra kattintva statikus adatokat láthatunk.</span
+    >
+  </div>
+
+  <br />
+  <br />
+  <mat-card style="padding: 10px">
+    <div style="gap: 5%; display: flex">
+      <button mat-raised-button>Default</button>
+      <button mat-raised-button color="primary">Reload</button>
+
+      <!--       <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!selection.hasValue()"
+        (click)="openDialog(selection.selected)"
+      >
+        Update
+      </button> -->
+    </div>
+  </mat-card>
+  <br />
+  <mat-accordion class="example-headers-align" multi>
+    <!-- Users json -->
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Filter </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="row" style="display: flex; gap: 3%">
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Search</mat-label>
+          <input
+            matInput
+            (keyup)="searchInputChange($event)"
+            [(ngModel)]="searchValue"
+          />
+          <mat-icon matSuffix>search</mat-icon>
+          <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [style.width.%]="100">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker">
+            <input matStartDate placeholder="Start date" />
+            <input matEndDate placeholder="End date" />
+          </mat-date-range-input>
+          <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="rangePicker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button mat-button matDateRangePickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDateRangePickerApply>
+                Apply
+              </button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+  <ang23-custom-table
+    [displayedColumns]="displayedColumns"
+    [tableData]="tableData"
+    [paginationSizes]="paginationSizes"
+    [paginationLength]="paginationLength"
+    [defaultPageSize]="defaultPageSize"
+    [pageIndex]="pageIndex"
+    [loading]="loading"
+    (pageEvent)="handlePageEvent($event)"
+    (sortEvent)="handleSortEvent($event)"
+  >
+  </ang23-custom-table>
+  <br />
+</div>

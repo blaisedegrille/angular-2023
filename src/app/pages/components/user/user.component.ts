@@ -1,15 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import {
-  MatTable,
-  MatTableDataSource,
-  MatTableDataSourcePaginator,
-} from '@angular/material/table';
-import { User } from 'src/app/models/user';
+import { MatTableDataSource } from '@angular/material/table';
 import { UserJsonPlaceholder } from 'src/app/models/user-jsonplaceholder';
 import { UserJsonPlaceholderService } from 'src/app/service/user-jsonplaceholder.service';
-import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'ang23-user',
