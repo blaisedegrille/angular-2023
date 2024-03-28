@@ -1,7 +1,10 @@
 // mixin that enables css variables in light mode
 @mixin lighten() {
-  @include mat.all-component-colors($my-mat3-light-theme);
+  @include mat.all-component-themes($my-mat3-light-theme);
+  @include mat.icon-button-theme($my-dark-button-theme);
+
   //@include mat.all-component-colors($my-light-theme);
+  //
   // @include mat.checkbox-theme($my-light-button-theme);
 
   // @include mat.input
@@ -25,7 +28,9 @@
 
 // mixin that enables css variables in dark mode
 @mixin darken() {
-  @include mat.all-component-colors($my-mat3-dark-theme);
+  @include mat.all-component-themes($my-mat3-dark-theme);
+  @include mat.icon-button-theme($my-dark-button-theme);
+
   // @include mat.all-component-colors($my-dark-theme);
   /*   @include mat.button-theme($my-dark-button-theme);
   @include mat.select-theme($my-dark-button-theme);
