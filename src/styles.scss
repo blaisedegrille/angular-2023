@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "@angular/material" as mat;
+@use "@angular/material-experimental" as matx;
 
 @import "../node_modules/@swimlane/ngx-datatable/themes/material.scss";
 @import "./styles/theme_variables";
@@ -23,6 +24,38 @@ $my-light-theme: mat.define-light-theme(
       accent: $my-accent-green,
     ),
     density: 0,
+  )
+);
+
+$my-mat3-light-theme: matx.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: matx.$m3-violet-palette,
+    ),
+    typography: (
+      brand-family: "Comic Sans",
+      bold-weight: 900,
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);
+
+$my-mat3-dark-theme: matx.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: matx.$m3-violet-palette,
+    ),
+    typography: (
+      brand-family: "Comic Sans",
+      bold-weight: 900,
+    ),
+    density: (
+      scale: -1,
+    ),
   )
 );
 

@@ -1,29 +1,26 @@
 import { NgModule, isDevMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
+import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { SampleComponent } from './sample/sample.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { LayoutModule } from './pages/layout.module';
-import { MaterialModule } from './shared/material.module';
-import { SharedModule } from './shared/shared.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { SampleComponent } from './sample/sample.component';
 import { ModeToggleModule } from './shared/mode-toggle/mode-toggle.module';
+import { SharedModule } from './shared/shared.module';
 
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp } from '@angular/fire/app';
-import { environment } from 'src/environments/environment';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp } from 'firebase/app';
 import { NgChartsModule } from 'ng2-charts';
-import { NgxEditorModule } from 'ngx-editor';
+import { environment } from 'src/environments/environment';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -61,7 +58,11 @@ const analytics = getAnalytics(app); */
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      connectInZone: true,
+    }),
     RouterModule,
   ],
   providers: [],
