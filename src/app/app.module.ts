@@ -20,6 +20,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { initializeApp } from 'firebase/app';
 import { NgChartsModule } from 'ng2-charts';
 import { environment } from 'src/environments/environment';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -65,7 +66,9 @@ const analytics = getAnalytics(app); */
     }),
     RouterModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
